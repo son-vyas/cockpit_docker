@@ -12,7 +12,7 @@ $ docker run hello-world
 ```
 List all images docker images 
 ```
-ls
+$ ls
 ```
 
 ### Docker Compose
@@ -46,7 +46,7 @@ $ usermod $USER -aG docker
 ```
 Activate group changes
 ```
-newgrp docker
+$ newgrp docker
 ```
 ### Cockpit installation
 
@@ -55,7 +55,20 @@ $ docker volume create telegraf-volume
 ```
 Navigate to ci-scripts/infra-setup/roles/rrcockpit/files
 ```
-cd ci-scripts/infra-setup/roles/rrcockpit/files
+$ cd ci-scripts/infra-setup/roles/rrcockpit/files
 ./development_script.sh -s
 ```
 It is time consuming at first run. So relax, it will continuosly pull containers.
+
+create-api-key.py
+
+```
+$ cd files/grafana/
+$ ./create-api-key.py --key-name foo > grafana.key
+```
+export-grafana.py and import-grafana.py
+```
+./export-grafana.py --host http://172.18.0.6:3000
+./import-grafana.py --host http://172.18.0.6:3000
+
+```
