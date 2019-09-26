@@ -35,3 +35,27 @@ Verify installation
 ```
 $ docker-compose --version
 ```
+### Add user to docker group
+
+```
+$ groupadd docker
+```
+Add docker group to supplementary group of user
+```
+$ usermod $USER -aG docker
+```
+Activate group changes
+```
+newgrp docker
+```
+### Cockpit installation
+
+```
+$ docker volume create telegraf-volume
+```
+Navigate to ci-scripts/infra-setup/roles/rrcockpit/files
+```
+cd ci-scripts/infra-setup/roles/rrcockpit/files
+./development_script.sh -s
+```
+It is time consuming at first run. So relax, it will continuosly pull containers.
